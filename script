@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Set the target IP address
+target_ip="172.16.21.86"
+
+echo "Starting port scan on $target_ip..."
+nmap -p 1-65535 $target_ip > port_scan.txt
+
+echo "Starting version detection on $target_ip..."
+nmap -sV $target_ip > version_detection.txt
+
+echo "Starting script scan for SQL injection on $target_ip..."
+nmap --script=http-sql-injection $target_ip > sql_injection_scan.txt
+
+echo "Starting OS detection on $target_ip..."
+nmap -O $target_ip > os_detection.txt
+
+echo "Starting vulnerability scan on $target_ip..."
+nmap --script=vuln $target_ip > vulnerability_scan.txt
+
+echo "Scan complete. Results saved in port_scan.txt, version_detection.txt, sql_injection_scan.txt, os_detection.txt and vulnerability_scan.txt"
