@@ -1,6 +1,9 @@
 # nmap_script
 A bash script for nmap
 
+Dont forget to make the script executable
+$ sudo chmod +x >filename.sh<
+
 This script will preform a scan on an IP. 
 
 Here is the output from sql-scan:
